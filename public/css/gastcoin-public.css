@@ -1,0 +1,17 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+
+ .gastcoin-pay-button{
+    background-image: url(https://gastcoin.com/wp-content/uploads/2021/10/gastcoin-button.png);
+    background-color: #00000000;
+    width: 172px;
+    height: 45px;
+ }
+
+ .gastcoin-pay-button:focus{
+    color: #00000000!important;
+    background-color: #00000000!important;
+    border-color: #00000000!important;
+ }
