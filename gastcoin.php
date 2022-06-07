@@ -9,16 +9,16 @@
  * that starts the plugin.
  *
  * @link              https://gastcoin.com
- * @since             0.5.0
+ * @since             1.6.1
  * @package           gastcoin
  *
  * @wordpress-plugin
- * Plugin Name:       Gastcoin Gateway Woocommerce
+ * Plugin Name:       Gastcoin Gateway
  * Plugin URI:        https://gastcoin.com/
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
- * Version:           0.5.0
+ * Description:       Add the Gastcoin Gateway in Woocommerce, making use of Metamask, Coinbase Wallet or trust wallet for decentralized commerce.
+ * Version:           1.6.1
  * Author:            FemoraPro
- * Author URI:        https://www.wpospeed.com/
+ * Author URI:        https://www.femora.pro/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       gastcoin
@@ -30,12 +30,15 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
+
+define('GASTCOIN_DIR_URL', plugin_dir_url(__FILE__));
+
 /**
  * Currently plugin version.
  * Start at version 0.5.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'gastcoin_VERSION', '0.5.0' );
+define( 'GASTCOIN_VERSION', '1.6.13' );
 
 
 
@@ -71,10 +74,13 @@ function gastcoin_add_gateway_class($gateways)
 	return $gateways;
 }
 
-add_action('plugins_loaded', 'misha_init_gateway_class');
-function misha_init_gateway_class()
+add_action('plugins_loaded', 'gast_gateway_class');
+function gast_gateway_class()
 {
+	if (class_exists('WooCommerce')) {
 	require_once plugin_dir_path(__FILE__) . 'includes/class-gastcoin-woocommerce.php';
+	}
+	
 }
 
 register_activation_hook( __FILE__, 'activate_gastcoin' );

@@ -42,6 +42,15 @@ class gastcoin_Loader {
 	protected $filters;
 
 	/**
+	 * The array of shorcodes registered with WordPress.
+	 *
+	 * @since    0.5.0
+	 * @access   protected
+	 * @var      array    $shorcodes    The shorcodes registered with WordPress to fire when the plugin loads.
+	 */
+	protected $shorcodes;
+
+	/**
 	 * Initialize the collections used to maintain the actions and filters.
 	 *
 	 * @since    0.5.0
@@ -50,6 +59,7 @@ class gastcoin_Loader {
 
 		$this->actions = array();
 		$this->filters = array();
+		$this->shorcodes = array();
 
 	}
 
@@ -65,6 +75,11 @@ class gastcoin_Loader {
 	 */
 	public function add_action( $hook, $component, $callback, $priority = 10, $accepted_args = 1 ) {
 		$this->actions = $this->add( $this->actions, $hook, $component, $callback, $priority, $accepted_args );
+	}
+
+	public function add_shortcode($hook, $component, $callback, $priority = 10, $accepted_args = 1)
+	{
+		$this->shorcodes = $this->add($this->shorcodes, $hook, $component, $callback, $priority, $accepted_args);
 	}
 
 	/**
@@ -122,6 +137,10 @@ class gastcoin_Loader {
 
 		foreach ( $this->actions as $hook ) {
 			add_action( $hook['hook'], array( $hook['component'], $hook['callback'] ), $hook['priority'], $hook['accepted_args'] );
+		}
+
+		foreach ($this->shorcodes as $hook) {
+			add_shortcode($hook['hook'], array($hook['component'], $hook['callback']), $hook['priority'], $hook['accepted_args']);
 		}
 
 	}

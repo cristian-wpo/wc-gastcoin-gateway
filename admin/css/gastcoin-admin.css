@@ -1,0 +1,19 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+ .gast_input, .gast_input_active{
+    margin-bottom: 20px;
+ }
+ .gast_input label{
+    display: block;
+    width: 80px;
+    float: left;
+ }
+ .input_address input{
+     width: 400px;
+ }
+ #gastcoin-preview-image{
+    max-width: 200px;
+    height: auto;
+ }

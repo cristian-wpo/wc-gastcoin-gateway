@@ -3,61 +3,47 @@
 
 
 	jQuery(document).ready(function () {
-		if (typeof window.ethereum !== 'undefined') {
-			console.log('MetaMask is installed!');
-		}
-
-
+		const gast_qrCode = new QRCodeStyling({
+			width: 300,
+			height: 300,
+			type: "svg",
+			data: window.location.href,
+			image: logo_gastqr,
+			dotsOptions: {
+				color: "#27272a",
+				type: "rounded"
+			},
+			backgroundOptions: {
+				color: "#f6f7f9",
+			},
+			imageOptions: {
+				crossOrigin: "anonymous",
+				margin: 20
+			}
+		});
+		
+		gast_qrCode.append(document.getElementById("gast-qr-1"));
 	});
-
-	/*const abi = [{
-		"constant": false,
-		"inputs": [
-		],
-		"name": "buy",
-		"outputs": [
-			{
-				"name": "success",
-				"type": "bool"
-			}
-		],
-		"payable": true,
-		"type": "function"
-	}]
-	const contract_address = '0xf035755df96ad968a7ad52c968dbe86d52927f5b'
-
-	var address = '0x91612055A68aD74A6e756615941Ac59e9220A940'
-	function startApp(web3) {
-		//alert("entro");
-		const eth = new Eth(web3.currentProvider)
-		const token = eth.contract(abi).at(contract_address);
-		listenForClicks(token, web3)
-		//alert("llego");
-	}
-	function listenForClicks(miniToken, web3) {
-		var button = document.querySelector('button.transferFunds')
-		web3.eth.getAccounts(function (err, accounts) { console.log(accounts); address = accounts.toString(); })
-		button.addEventListener('click', function () {
-			miniToken.buy({ from: address, value: '1000000000000000000' })
-				.then(function (txHash) {
-					console.log('Transaction sent')
-					console.dir(txHash)
-					waitForTxToBeMined(txHash)
-				})
-				.catch(console.error)
-		})
-	}
-	async function waitForTxToBeMined(txHash) {
-		let txReceipt
-		while (!txReceipt) {
-			try {
-				txReceipt = await eth.getTransactionReceipt(txHash)
-			} catch (err) {
-				return indicateFailure(err)
-			}
-		}
-		indicateSuccess()
-	}*/
 
 	
 })( jQuery );
+
+
+function gast_getlink() {
+		var aux = document.createElement('input');
+		aux.setAttribute('value', window.location.href);
+		document.body.appendChild(aux);
+		aux.select();
+		document.execCommand('copy');
+		document.body.removeChild(aux);
+		var css = document.createElement('style');
+		var estilo = document.createTextNode('#aviso {position:fixed; z-index: 9999999; top: 50%;left:50%;margin-left: -70px;padding: 20px; background: gold;border-radius: 8px;font-family: sans-serif;}');
+		css.appendChild(estilo);
+		document.head.appendChild(css);
+		var aviso = document.createElement('div');
+		aviso.setAttribute('id', 'aviso');
+		var contenido = document.createTextNode('URL copiada');
+		aviso.appendChild(contenido);
+		document.body.appendChild(aviso);
+		window.load = setTimeout('document.body.removeChild(aviso)', 2000);
+	}

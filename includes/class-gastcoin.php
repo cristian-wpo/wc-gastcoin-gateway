@@ -64,19 +64,20 @@ class gastcoin {
 	 * Load the dependencies, define the locale, and set the hooks for the admin area and
 	 * the public-facing side of the site.
 	 *
-	 * @since    0.5.0
+	 * @since    0.7
 	 */
 	public function __construct() {
-		if ( defined( 'gastcoin_VERSION' ) ) {
-			$this->version = gastcoin_VERSION;
+		if ( defined( 'GASTCOIN_VERSION' ) ) {
+			$this->version = GASTCOIN_VERSION;
 		} else {
-			$this->version = '0.5.0';
+			$this->version = '0.7.5';
 		}
 		$this->gastcoin = 'gastcoin';
 
 		$this->load_dependencies();
 		$this->set_locale();
 		$this->define_public_hooks();
+		$this->define_admin_hooks();
 
 	}
 
@@ -117,10 +118,15 @@ class gastcoin {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-gastcoin-public.php';
 
 		/**
+		 * The class responsible for defining all actions that occur in the admin-facing
+		 * side of the site.
+		 */
+		require_once plugin_dir_path(dirname(__FILE__)) . 'admin/class-gastcoin-admin.php';
+
+		/**
 		 * The class responsible for defining all actions for woocommerce
 		 * side of the site.
 		 */
-		//require_once plugin_dir_path( dirname(__FILE__)) . 'public/class-gastcoin-woocommerce.php';
 
 		$this->loader = new gastcoin_Loader();
 
@@ -143,6 +149,28 @@ class gastcoin {
 
 	}
 
+	/**
+	 * Register all of the hooks related to the admin area functionality
+	 * of the plugin.
+	 *
+	 * @since   0.8.0
+	 * @access   private
+	 */
+	private function define_admin_hooks()
+	{
+		$gastcoin_admin = new Gastcoin_Admin($this->get_gastcoin(), $this->get_version());
+
+		$this->loader->add_action("admin_head", $gastcoin_admin, "gastcoin_favicon");
+		$this->loader->add_action('admin_enqueue_scripts', $gastcoin_admin, 'enqueue_styles');
+		$this->loader->add_action('admin_enqueue_scripts', $gastcoin_admin, 'enqueue_scripts');
+		$this->loader->add_action("admin_menu", $gastcoin_admin, "crear_menu_gastcoin");
+		$this->loader->add_action("wp_ajax_gastcoin_setting", $gastcoin_admin, "gastcoin_setting");
+		$this->loader->add_action("wp_ajax_gastcoin_get_image", $gastcoin_admin, "gastcoin_get_image");
+		$this->loader->add_action("admin_enqueue_scripts", $gastcoin_admin, "load_media_files_gast");
+		
+	
+	}
+
 
 	/**
 	 * Register all of the hooks related to the public-facing functionality
@@ -160,6 +188,9 @@ class gastcoin {
 		$this->loader->add_action( 'woocommerce_thankyou', $plugin_public, 'gastcoin_completes_order_thankyou' );
 		$this->loader->add_action( 'wp_ajax_gast_complete', $plugin_public, 'gastcoin_gast_complete');
 		$this->loader->add_action( 'wp_ajax_nopriv_gast_complete', $plugin_public, 'gastcoin_gast_complete');
+		
+		$this->loader->add_shortcode('gastcoin_gataway',  $plugin_public, 'shortcode_page_payment');
+		$this->loader->add_shortcode('gastcoin_gateway',  $plugin_public, 'shortcode_page_payment');
 
 
 	}

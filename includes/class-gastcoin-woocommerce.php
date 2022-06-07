@@ -13,10 +13,10 @@ class WC_Gastcoin_Gateway extends WC_Payment_Gateway
 	{
 
 		$this->id = 'gastcoin'; // payment gateway plugin ID
-		$this->icon = 'https://gastcoin.com/wp-content/uploads/2021/10/gastcoin-1-e1633707484828.png'; // URL of the icon that will be displayed on checkout page near your gateway name
+		$this->icon = plugin_dir_url(__DIR__) . 'assets/img/gastcoin-1-e1633707484828.png'; // URL of the icon that will be displayed on checkout page near your gateway name
 		$this->has_fields = true; // in case you need a custom credit card form
 		$this->method_title = 'Gastcoin Gateway';
-		$this->method_description = 'Gastcoin payment gateway'; // will be displayed on the options page
+		$this->method_description = 'Gastcoin Gateway'; // will be displayed on the options page
 
 
 		// gateways can support subscriptions, refunds, saved payment methods,
@@ -51,7 +51,6 @@ class WC_Gastcoin_Gateway extends WC_Payment_Gateway
 	 */
 	public function init_form_fields()
 	{
-
 		$this->form_fields = array(
 			'enabled' => array(
 				'title'       => 'Enable/Disable',
@@ -71,7 +70,7 @@ class WC_Gastcoin_Gateway extends WC_Payment_Gateway
 				'title'       => 'Description',
 				'type'        => 'textarea',
 				'description' => 'This controls the description which the user sees during checkout.',
-				'default'     => 'Pay with your Metamask.',
+				'default'     => 'Pay with Metamask or Trust Wallet BUSD or USDT.',
 			),
 			'address_key' => array(
 				'title'       => 'ACCOUNT ADDRESS',
@@ -86,11 +85,8 @@ class WC_Gastcoin_Gateway extends WC_Payment_Gateway
 	public function payment_fields()
 	{
 		// ok, let's display some description before the payment form
-		//echo wpautop(wp_kses_post($this->description));
-		//echo '<p><div id="enableGastcoinButton">Enable Ethereum</div></p>
-		//<div id="sendGastcoinButton">Send Eth</div>';
 		$this->description = $this->get_option('description');
-		echo $this->description;
+		echo esc_html_e($this->description);
 	}
 
 	/*
@@ -123,10 +119,20 @@ class WC_Gastcoin_Gateway extends WC_Payment_Gateway
 		$order = wc_get_order($order_id);
 
 		// Redirect to the thank you page
+
+		$url_redirect = $this->get_return_url($order);
+		if (get_option('_gast_url_pay') && get_option('_gast_url_pay') != '') {
+			$url_redirect = get_option('_gast_url_pay') . "/?order_id=$order_id";
+		}
+
 		return array(
+
 			'result' => 'success',
-			'redirect' => $this->get_return_url($order)
+
+			'redirect' => $url_redirect
 		);
+		
+		
 	}
 
 	/*

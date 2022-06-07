@@ -3,15 +3,420 @@
  * included in this file.
  */
 
- .gastcoin-pay-button{
-    background-image: url(https://gastcoin.com/wp-content/uploads/2021/10/gastcoin-button.png);
-    background-color: #00000000;
-    width: 172px;
-    height: 45px;
- }
+ 
 
  .gastcoin-pay-button:focus{
     color: #00000000!important;
     background-color: #00000000!important;
     border-color: #00000000!important;
  }
+
+ #metamask-gast-validate{
+    width: 65%;
+    margin: 0 auto;
+    margin-top: 60px;
+ }
+#gast-btn-metamask img, #gast-btn-trust img, #gast-btn-coinbasewallet img{
+   width: 25px!important;
+   margin-right: 20px!important;
+}
+
+#gast-btn-metamask button, #gast-btn-trust button, #gast-btn-coinbasewallet button{
+    background-color: #ffffff00!important;
+    color: #000!important;
+    border: 1px solid #000000!important;
+    border-radius: 10px!important;
+    height: 60px!important;
+    width: 235px!important;
+}
+
+#gast-btn-metamask, #gast-btn-trust, #gast-btn-coinbasewallet{
+   background-image: none;
+}
+ /*.gast_btn{
+    float:left;
+ }*/
+ 
+ .gast_btn button{
+   border: 0px!important;
+ }
+
+ .btn-crypto{
+   width: 100%;
+   min-height: 100px;
+ }
+
+ @media only screen and (max-width: 600px) {
+   .btn-crypto{
+      width: 50%;
+      margin: 0 auto;
+      min-height: 300px;
+      margin-top: 60px;
+   }
+   .btn-crypto .gast_btn{ 
+      margin-bottom: 20px;
+   }
+ }
+
+ .gast_btn button{
+    background-color: #ffffff00!important;
+ }
+
+ .gastcoin-pay-button-busd:hover,
+ .gastcoin-pay-button-tether:hover,
+ .gastcoin-pay-button:hover {
+    width: 190px!important;
+    height: 50px!important;
+    background-size: cover;
+    cursor: pointer;
+ }
+
+ .gastcoin-pay-button-custom:hover{
+    width: 190px !important;
+    height: 50px !important;
+    cursor: pointer;
+ }
+
+ .gast_btn button:hover {
+    width: 190px;
+ }
+
+ .gastcoin-box-pay{
+   margin: 0 auto!important;
+   width: 46%!important;
+   background-color: #605f61;
+ }
+
+
+ 
+.gast-getlink:hover {
+   background: slateblue;
+}
+
+.gast-getlink:hover:after {
+   border-color: transparent transparent transparent slateblue;
+}
+
+#gast-qr-1{
+  margin: 0 auto;
+width: 80%;
+}
+
+.gastcoin-box-pay h3{
+   margin-bottom: 0px!important;
+   color: #ffffff!important;
+}
+#gast-get-urlpay{
+
+}
+
+/*Button Gastcoin $GAST*/
+
+.box-gastcoin{
+   width: 100%!important;
+   max-width: 100%!important;
+}
+
+
+.box-gastcoin{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #16161E;
+}
+
+.container-gast-card{
+  position: relative;
+  margin-top: 20px;
+   margin-bottom: 20px;
+}
+
+.container-gast-card .card{
+  position: relative;
+  width: 400px;
+  height: 730px;
+  background: #232323;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+}
+
+.container-gast-card .card:before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #f5a91e00;
+  clip-path: circle(150px at 80% 20%);
+  transition: 0.5s ease-in-out;
+}
+
+.container-gast-card .card:hover:before{
+  clip-path: circle(300px at 80% -20%);
+}
+
+.container-gast-card .card .imgBx{
+  position: absolute;
+  top: 25%;
+  transform: translateY(-50%);
+  z-index: 10000;
+  width: 100%;
+  height: 220px;
+  transition: 0.5s;
+  margin-left: 10px;
+}
+
+.container-gast-card .card .imgBx img{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-25deg);
+  width: 270px;
+}
+
+.container-gast-card .card .contentBx{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 390px;
+  text-align: center;
+  transition: 1s;
+  z-index: 10;
+}
+
+
+.container-gast-card .imgBx h2{
+  position: relative;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #fff;
+  margin: 0;
+  font-size: 42px;
+  text-align: center;
+}
+
+.container-gast-card .card .contentBx .size{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 20px;
+  transition: 0.5s;
+  opacity: 1;
+  visibility: visible;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 30px;
+}
+
+.container-gast-card .card .contentBx .color {
+  justify-content: center;
+  align-items: center;
+  padding: 8px 20px;
+  transition: 0.5s;
+  opacity: 1;
+  visibility: visible;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.gast-red{
+   margin-right: 10px;
+   margin-left: 10px;
+}
+
+
+.container-gast-card .card .contentBx .size h3, .container-gast-card .card .contentBx .color h3{
+  color: #fff;
+  font-weight: 300;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-right: 10px;
+}
+
+.container-gast-card .card .contentBx .size span{
+  width: 26px;
+  height: 26px;
+  text-align: center;
+  line-height: 26px;
+  font-size: 14px;
+  display: inline-block;
+  color: #111;
+  background: #fff;
+  margin: 0 5px;
+  transition: 0.5s;
+  color: #111;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.container-gast-card .card .contentBx a{
+  background: #212121;
+  border: 1px solid #31303082;
+  display: inline-block;
+  padding: 10px 10px 10px 10px!important;
+  text-decoration: none;
+  transform: translateY(50px);
+  font-size: 16px;
+  width: 90%;
+  text-align: right;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 13px 18px -8px rgba(0,0,0,0.27);
+  transition: all 250ms;
+  font-family: roboto;
+}
+
+.container-gast-card .card .contentBx a:active{
+  box-shadow: inset 4px 4px 12px rgba(0,0,0,0.27),
+             inset -4px -4px 12px rgba(0,0,0,0.27);
+}
+
+.container-gast-card .card h2{
+  color: #fff;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 26px;
+}
+
+.container-gast-card .size .gast-red{
+   width: 50%;
+}
+.container-gast-card .icon{
+   float: left;
+}
+.a-gastcoin{
+   margin-top: 20px;;
+}
+.powerbygastcoin{
+   color: #ffffff;
+   text-align: center;
+   font-family: roboto;
+}
+.gast-red{
+  display: flex;
+  justify-content: center;
+}
+.gast-red a{
+  background-color: #303038;
+}
+.container-gast-card .color a{
+  color: #ffffff!important;
+}
+
+.a-gastcoin{
+  cursor: pointer;
+}
+
+/**/
+
+
+.container-gast-card .card .contentBx .color a span {
+ position: absolute;
+}
+@media only screen and (min-width: 800px) {
+  .container-gast-card .card .contentBx .color a span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ae00ff);
+  }
+}
+
+.container-gast-card .card .contentBx .color a:hover span:nth-child(1) {
+ left: 100%;
+ transition: 0.7s;
+}
+@media only screen and (min-width: 800px) {
+  .container-gast-card .card .contentBx .color a span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #001eff);
+  }
+}
+
+.container-gast-card .card .contentBx .color a:hover span:nth-child(3) {
+ right: 100%;
+ transition: 0.7s;
+ transition-delay: 0.35s;
+}
+@media only screen and (min-width: 800px) {
+  .container-gast-card .card .contentBx .color a span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #ae00ff);
+  }
+}
+
+.container-gast-card .card .contentBx .color a:hover span:nth-child(2) {
+ top: 100%;
+ transition: 0.7s;
+ transition-delay: 0.17s;
+}
+@media only screen and (min-width: 800px) {
+.container-gast-card .card .contentBx .color a span:nth-child(4) {
+ bottom: -100%;
+ left: 0;
+ width: 2px;
+ height: 100%;
+ background: linear-gradient(360deg, transparent, #001eff);
+}
+}
+
+.container-gast-card .card .contentBx .color a:hover span:nth-child(4) {
+ bottom: 100%;
+ transition: 0.7s;
+ transition-delay: 0.52s;
+}
+
+
+.container-gast-card .card .contentBx .color a:active span:nth-child(1) 
+span:nth-child(2) 
+span:nth-child(2) 
+span:nth-child(2) {
+ transition: none;
+ transition-delay: none;
+}
+
+/*End button Pay*/
+
+/*loader*/
+.gast-spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border-left-color: #09f;
+  animation: spin 1s ease infinite;
+  margin: 0 auto;
+  margin-top: 130px;
+  display: none;
+}
+.gast-text-confirmation{
+  margin-top: 150px;
+  color: #fff;
+  display: none;
+}
+.gast-text-confirmation a{
+  color: #fff;
+  text-align: center!important;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/*end loader*/
