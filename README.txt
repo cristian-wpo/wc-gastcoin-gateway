@@ -3,8 +3,8 @@ Contributors: FemoraPro
 Donate link: https://gastcoin.com/
 Tags: Metamask, Trust Wallet, Gateway, cryptocurrency, woocommerce, USDT, BUSD, ecommerce, payment, criptomonedas, Coinbase, stablecoins
 Requires at least: 5.0
-Tested up to: 5.9.3
-Stable tag: 1.6.0
+Tested up to: 6.0.2
+Stable tag: 1.9.15
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -106,15 +106,11 @@ A: A token is a digital asset that differs from a cryptocurrency in that it does
 
 1. This is the general configuration
 
-2. This is the configuration for the custom token bep-20
+2. Here you select gastcoin Gateway to pay
 
-3. Here you select gastcoin Gateway to pay
+3. Here you select the tokens to be paid for
 
-4. Here you select the tokens to be paid for
-
-5. This is what it looks like when using a custom token
-
-6. Here is the configuration to receive payments in your wallet
+4. Here is the configuration to receive payments in your wallet
 
 == Changelog ==
 = 0.7.0 =
@@ -173,6 +169,47 @@ A: A token is a digital asset that differs from a cryptocurrency in that it does
 
 = 1.6.0 =
 * Fixed security issue
+
+= 1.7.1 =
+* New graphical interface
+* Supports polygon and BSC at the user's choice
+* QR is added to open on other devices
+
+= 1.7.2 =
+* Fix bug
+
+= 1.7.5 =
+* Support PHP 8.0
+* Supports custom tokens in BSC and Polygon
+
+= 1.8.0 =
+* New payment interface
+* New payment experience
+* Detects if payment was successful
+* Orders go to processing with successful payments
+* Improved user experience
+
+= 1.8.1 =
+* Fix bug open wallet
+
+= 1.8.2 =
+* Fix bug desing
+
+= 1.8.3 =
+* Update desing
+
+= 1.9.0 =
+* Update
+
+= 1.9.1 =
+* Update captures
+
+= 1.9.15 =
+* Fix payment error in Coinbase Wallet
+* Detects whether the connected network is a BSC or Polygon network
+
+= 1.9.20 = 
+* Fix bug URL bsc in polygon
 
 :)
    

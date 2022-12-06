@@ -8,15 +8,15 @@
  * registers the activation and deactivation functions, and defines a function
  * that starts the plugin.
  *
- * @link              https://gastcoin.com
- * @since             1.6.1
+ * @link              https://gastcoin.com 
+ * @since             1.9.18
  * @package           gastcoin
  *
  * @wordpress-plugin
  * Plugin Name:       Gastcoin Gateway
  * Plugin URI:        https://gastcoin.com/
  * Description:       Add the Gastcoin Gateway in Woocommerce, making use of Metamask, Coinbase Wallet or trust wallet for decentralized commerce.
- * Version:           1.6.1
+ * Version:           1.9.18
  * Author:            FemoraPro
  * Author URI:        https://www.femora.pro/
  * License:           GPL-2.0+
@@ -38,7 +38,7 @@ define('GASTCOIN_DIR_URL', plugin_dir_url(__FILE__));
  * Start at version 0.5.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'GASTCOIN_VERSION', '1.6.13' );
+define( 'GASTCOIN_VERSION', '1.9.18' );
 
 
 

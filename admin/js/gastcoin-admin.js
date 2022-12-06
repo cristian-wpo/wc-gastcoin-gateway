@@ -33,7 +33,6 @@
 		setting_gastcoin();
 	});
 	
-
 })( jQuery );
 
 
@@ -51,6 +50,16 @@ function setting_gastcoin(){
 	jQuery("#cbox_gast").blur(function () {
 		save_gast_data("cbox_gast", 'check');
 	});
+	//save cbox_production value
+	jQuery("#cbox_production").change(function () {
+		save_gast_data("cbox_production", 'check');
+	});
+	//save cbox_testing value
+	jQuery("#cbox_testing").change(function () {
+		save_gast_data("cbox_testing", 'check');
+	});
+
+
 	//save cbox_busd value
 	jQuery("#cbox_busd").blur(function () {
 		save_gast_data("cbox_busd", 'check');
@@ -60,6 +69,9 @@ function setting_gastcoin(){
 		save_gast_data("cbox_usdt", 'check');
 	});
 
+	/**
+	 * Save custom token BSC
+	 */
 	//save name token
 	jQuery("#gast_value_name").blur(function () {
 		save_gast_data("gast_value_name");
@@ -80,15 +92,6 @@ function setting_gastcoin(){
 	jQuery("#custom_token").blur(function () {
 		save_gast_data("custom_token", 'check');
 	});
-
-	//save network payment
-	jQuery('#my_network_select').change(function(){
-        //console.log(jQuery("input[name='select_red']:checked").val());
-		var network_select = jQuery("input[name='select_red']:checked").val();
-		save_gast_data(network_select);
-    });
-
-
 	//custom image btn 
 	jQuery(document).ready( function($) {
       jQuery('input#gastcoin_media_manager').click(function(e) {
@@ -116,7 +119,7 @@ function setting_gastcoin(){
                 });
                 var ids = gallery_ids.join(",");
                     jQuery('input#gastcoin_custom_image_id').val(ids);
-                    Refresh_Image(ids);
+                    Refresh_Image(ids, '');
                 });
 
                 image_frame.on('open',function() {
@@ -133,21 +136,116 @@ function setting_gastcoin(){
 			image_frame.open();
 		});
 	});
+	/**
+	 * End save custom token BSC
+	 */
+
+	/**
+	 * Save custom token Polygon
+	 */
+		//save name token
+	jQuery("#gast_value_name_matic").blur(function () {
+		save_gast_data("gast_value_name_matic");
+	});
+	//save symbol token
+	jQuery("#gast_value_symbol_matic").blur(function () {
+		save_gast_data("gast_value_symbol_matic");
+	});
+	//save address token
+	jQuery("#gast_value_address_matic").blur(function () {
+		save_gast_data("gast_value_address_matic");
+	});
+	//save decimal token
+	jQuery("#gast_value_decimals_matic").blur(function () {
+		save_gast_data("gast_value_decimals_matic");
+	});
+	//save custom_token value
+	jQuery("#custom_token_matic").blur(function () {
+		save_gast_data("custom_token_matic", 'check');
+	});
+	//custom image btn 
+	jQuery(document).ready( function($) {
+      jQuery('input#gastcoin_media_manager_matic').click(function(e) {
+		console.log('AAAAAAAAAAAAAA');
+             e.preventDefault();
+             var image_frame;
+             if(image_frame){
+                 image_frame.open();
+             }
+             // Define image_frame as wp.media object
+             image_frame = wp.media({
+                title: 'Select Media',
+                multiple : false,
+                library : { type : 'image', }
+            });
+
+            image_frame.on('close',function() {
+            // On close, get selections and save to the hidden input
+            // plus other AJAX stuff to refresh the image preview
+                var selection =  image_frame.state().get('selection');
+                var gallery_ids = new Array();
+                var my_index = 0;
+                    selection.each(function(attachment) {
+                    gallery_ids[my_index] = attachment['id'];
+                    my_index++;
+                });
+                var ids = gallery_ids.join(",");
+                    jQuery('input#gastcoin_custom_image_id_matic').val(ids);
+                    Refresh_Image(ids, '_matic');
+                });
+
+                image_frame.on('open',function() {
+                // On open, get the id from the hidden input
+                // and select the appropiate images in the media manager
+                var selection =  image_frame.state().get('selection');
+                var ids = jQuery('input#gastcoin_custom_image_id_matic').val().split(',');
+                ids.forEach(function(id) {
+                    var attachment = wp.media.attachment(id);
+                    attachment.fetch();
+                    selection.add( attachment ? [ attachment ] : [] );
+                });
+            });
+			image_frame.open();
+		});
+	});
+	/**
+	 * End save custom token Polygon
+	 */
+
+	//save network payment
+	jQuery('#select_red_bsc').change(function(){
+        //console.log(jQuery("input[name='select_red']:checked").val());
+		//var network_select_bsc = jQuery("input[name='select_red_bsc']:checked").is(':checked');
+		//console.log(network_select_bsc);
+		save_gast_data('select_red_bsc', 'check');
+    });
+
+	//save network payment
+	jQuery('#select_red_matic').change(function(){
+        //console.log(jQuery("input[name='select_red']:checked").val());
+		//var network_select_matic = jQuery("input[name='select_red_matic']:checked").is(':checked');
+		//console.log(network_select_bsc), 'check';
+		save_gast_data('select_red_matic', 'check');
+    });
+
+
 }
 
 // Ajax request to refresh the image preview
-function Refresh_Image(the_id){
+function Refresh_Image(the_id, the_network){
+		var action_data = 'gastcoin_get_image'+the_network;
+		console.log(action_data);
         var data = {
-            action: 'gastcoin_get_image',
+            action: action_data,
             id: the_id
         };
-		console.log('test');
-		save_gast_data("gastcoin_custom_image_id");
+		//console.log('test');
+		save_gast_data("gastcoin_custom_image_id"+the_network);
 
         jQuery.get(ajaxurl, data, function(response) {
 
             if(response.success === true) {
-                jQuery('#gastcoin-preview-image').replaceWith( response.data.image );
+                jQuery('#gastcoin-preview-image'+the_network).replaceWith( response.data.image );
             }
         });
 }

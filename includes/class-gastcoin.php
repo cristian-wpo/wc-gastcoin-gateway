@@ -166,7 +166,9 @@ class gastcoin {
 		$this->loader->add_action("admin_menu", $gastcoin_admin, "crear_menu_gastcoin");
 		$this->loader->add_action("wp_ajax_gastcoin_setting", $gastcoin_admin, "gastcoin_setting");
 		$this->loader->add_action("wp_ajax_gastcoin_get_image", $gastcoin_admin, "gastcoin_get_image");
+		$this->loader->add_action("wp_ajax_gastcoin_get_image_matic", $gastcoin_admin, "gastcoin_get_image_matic");
 		$this->loader->add_action("admin_enqueue_scripts", $gastcoin_admin, "load_media_files_gast");
+		$this->loader->add_action("init", $gastcoin_admin, "get_network_gast");
 		
 	
 	}
@@ -185,7 +187,7 @@ class gastcoin {
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
-		$this->loader->add_action( 'woocommerce_thankyou', $plugin_public, 'gastcoin_completes_order_thankyou' );
+		$this->loader->add_action( 'woocommerce_before_thankyou', $plugin_public, 'gastcoin_completes_order_thankyou' );
 		$this->loader->add_action( 'wp_ajax_gast_complete', $plugin_public, 'gastcoin_gast_complete');
 		$this->loader->add_action( 'wp_ajax_nopriv_gast_complete', $plugin_public, 'gastcoin_gast_complete');
 		

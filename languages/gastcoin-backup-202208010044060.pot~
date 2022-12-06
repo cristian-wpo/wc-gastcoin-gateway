@@ -4,7 +4,7 @@ msgstr ""
 "Language: \n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"POT-Creation-Date: 2022-08-01 00:44+0000\n"
+"POT-Creation-Date: 2022-08-01 00:18+0000\n"
 "X-Generator: Loco https://localise.biz/"
 
 #: admin/partials/gastcoin-admin-display.php:204
@@ -141,10 +141,6 @@ msgstr ""
 
 #: admin/partials/gastcoin-admin-display.php:283
 msgid "Select the network"
-msgstr ""
-
-#: public/class-gastcoin-public.php:287
-msgid "Select wallet"
 msgstr ""
 
 #: public/class-gastcoin-public.php:597

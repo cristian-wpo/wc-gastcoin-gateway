@@ -2,421 +2,330 @@
  * All of the CSS for your public-facing functionality should be
  * included in this file.
  */
-
- 
-
- .gastcoin-pay-button:focus{
-    color: #00000000!important;
-    background-color: #00000000!important;
-    border-color: #00000000!important;
+ #gastcoin-gateway{
+  display: none;
  }
-
- #metamask-gast-validate{
-    width: 65%;
-    margin: 0 auto;
-    margin-top: 60px;
- }
-#gast-btn-metamask img, #gast-btn-trust img, #gast-btn-coinbasewallet img{
-   width: 25px!important;
-   margin-right: 20px!important;
+.content-gastcoin{
+  max-width: 850px;
 }
-
-#gast-btn-metamask button, #gast-btn-trust button, #gast-btn-coinbasewallet button{
-    background-color: #ffffff00!important;
-    color: #000!important;
-    border: 1px solid #000000!important;
-    border-radius: 10px!important;
-    height: 60px!important;
-    width: 235px!important;
-}
-
-#gast-btn-metamask, #gast-btn-trust, #gast-btn-coinbasewallet{
-   background-image: none;
-}
- /*.gast_btn{
-    float:left;
- }*/
- 
- .gast_btn button{
-   border: 0px!important;
- }
-
- .btn-crypto{
-   width: 100%;
-   min-height: 100px;
- }
-
- @media only screen and (max-width: 600px) {
-   .btn-crypto{
-      width: 50%;
-      margin: 0 auto;
-      min-height: 300px;
-      margin-top: 60px;
-   }
-   .btn-crypto .gast_btn{ 
-      margin-bottom: 20px;
-   }
- }
-
- .gast_btn button{
-    background-color: #ffffff00!important;
- }
-
- .gastcoin-pay-button-busd:hover,
- .gastcoin-pay-button-tether:hover,
- .gastcoin-pay-button:hover {
-    width: 190px!important;
-    height: 50px!important;
-    background-size: cover;
-    cursor: pointer;
- }
-
- .gastcoin-pay-button-custom:hover{
-    width: 190px !important;
-    height: 50px !important;
-    cursor: pointer;
- }
-
- .gast_btn button:hover {
-    width: 190px;
- }
-
- .gastcoin-box-pay{
-   margin: 0 auto!important;
-   width: 46%!important;
-   background-color: #605f61;
- }
-
-
- 
-.gast-getlink:hover {
-   background: slateblue;
-}
-
-.gast-getlink:hover:after {
-   border-color: transparent transparent transparent slateblue;
-}
-
-#gast-qr-1{
+#img-wallet{
+  width: 160px;
   margin: 0 auto;
-width: 80%;
 }
-
-.gastcoin-box-pay h3{
-   margin-bottom: 0px!important;
-   color: #ffffff!important;
+.img-network{
+  width: 100px;
 }
-#gast-get-urlpay{
-
-}
-
-/*Button Gastcoin $GAST*/
-
-.box-gastcoin{
-   width: 100%!important;
-   max-width: 100%!important;
-}
-
-
-.box-gastcoin{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background: #16161E;
-}
-
-.container-gast-card{
-  position: relative;
-  margin-top: 20px;
-   margin-bottom: 20px;
-}
-
-.container-gast-card .card{
-  position: relative;
-  width: 400px;
-  height: 730px;
-  background: #232323;
-  border-radius: 5px;
-  overflow: hidden;
-  box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
-}
-
-.container-gast-card .card:before{
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #f5a91e00;
-  clip-path: circle(150px at 80% 20%);
-  transition: 0.5s ease-in-out;
-}
-
-.container-gast-card .card:hover:before{
-  clip-path: circle(300px at 80% -20%);
-}
-
-.container-gast-card .card .imgBx{
-  position: absolute;
-  top: 25%;
-  transform: translateY(-50%);
-  z-index: 10000;
-  width: 100%;
-  height: 220px;
-  transition: 0.5s;
-  margin-left: 10px;
-}
-
-.container-gast-card .card .imgBx img{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(-25deg);
-  width: 270px;
-}
-
-.container-gast-card .card .contentBx{
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 390px;
-  text-align: center;
-  transition: 1s;
-  z-index: 10;
-}
-
-
-.container-gast-card .imgBx h2{
-  position: relative;
-  font-weight: 600;
-  letter-spacing: 1px;
-  color: #fff;
-  margin: 0;
-  font-size: 42px;
-  text-align: center;
-}
-
-.container-gast-card .card .contentBx .size{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 8px 20px;
-  transition: 0.5s;
-  opacity: 1;
-  visibility: visible;
-  padding-top: 0;
-  padding-bottom: 0;
-  margin-top: 30px;
-}
-
-.container-gast-card .card .contentBx .color {
-  justify-content: center;
-  align-items: center;
-  padding: 8px 20px;
-  transition: 0.5s;
-  opacity: 1;
-  visibility: visible;
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-.gast-red{
-   margin-right: 10px;
-   margin-left: 10px;
-}
-
-
-.container-gast-card .card .contentBx .size h3, .container-gast-card .card .contentBx .color h3{
-  color: #fff;
-  font-weight: 300;
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-right: 10px;
-}
-
-.container-gast-card .card .contentBx .size span{
-  width: 26px;
-  height: 26px;
-  text-align: center;
-  line-height: 26px;
-  font-size: 14px;
-  display: inline-block;
-  color: #111;
-  background: #fff;
-  margin: 0 5px;
-  transition: 0.5s;
-  color: #111;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.container-gast-card .card .contentBx a{
-  background: #212121;
-  border: 1px solid #31303082;
-  display: inline-block;
-  padding: 10px 10px 10px 10px!important;
-  text-decoration: none;
-  transform: translateY(50px);
-  font-size: 16px;
+.block-90{
   width: 90%;
-  text-align: right;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0px 13px 18px -8px rgba(0,0,0,0.27);
-  transition: all 250ms;
-  font-family: roboto;
 }
-
-.container-gast-card .card .contentBx a:active{
-  box-shadow: inset 4px 4px 12px rgba(0,0,0,0.27),
-             inset -4px -4px 12px rgba(0,0,0,0.27);
-}
-
-.container-gast-card .card h2{
-  color: #fff;
-  text-align: center;
-  margin-top: 20px;
-  font-size: 26px;
-}
-
-.container-gast-card .size .gast-red{
-   width: 50%;
-}
-.container-gast-card .icon{
-   float: left;
-}
-.a-gastcoin{
-   margin-top: 20px;;
-}
-.powerbygastcoin{
-   color: #ffffff;
-   text-align: center;
-   font-family: roboto;
-}
-.gast-red{
-  display: flex;
-  justify-content: center;
-}
-.gast-red a{
-  background-color: #303038;
-}
-.container-gast-card .color a{
-  color: #ffffff!important;
-}
-
-.a-gastcoin{
-  cursor: pointer;
-}
-
-/**/
-
-
-.container-gast-card .card .contentBx .color a span {
- position: absolute;
-}
-@media only screen and (min-width: 800px) {
-  .container-gast-card .card .contentBx .color a span:nth-child(1) {
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #ae00ff);
-  }
-}
-
-.container-gast-card .card .contentBx .color a:hover span:nth-child(1) {
- left: 100%;
- transition: 0.7s;
-}
-@media only screen and (min-width: 800px) {
-  .container-gast-card .card .contentBx .color a span:nth-child(3) {
-  bottom: 0;
-  right: -100%;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #001eff);
-  }
-}
-
-.container-gast-card .card .contentBx .color a:hover span:nth-child(3) {
- right: 100%;
- transition: 0.7s;
- transition-delay: 0.35s;
-}
-@media only screen and (min-width: 800px) {
-  .container-gast-card .card .contentBx .color a span:nth-child(2) {
-  top: -100%;
-  right: 0;
-  width: 2px;
-  height: 100%;
-  background: linear-gradient(180deg, transparent, #ae00ff);
-  }
-}
-
-.container-gast-card .card .contentBx .color a:hover span:nth-child(2) {
- top: 100%;
- transition: 0.7s;
- transition-delay: 0.17s;
-}
-@media only screen and (min-width: 800px) {
-.container-gast-card .card .contentBx .color a span:nth-child(4) {
- bottom: -100%;
- left: 0;
- width: 2px;
- height: 100%;
- background: linear-gradient(360deg, transparent, #001eff);
-}
-}
-
-.container-gast-card .card .contentBx .color a:hover span:nth-child(4) {
- bottom: 100%;
- transition: 0.7s;
- transition-delay: 0.52s;
-}
-
-
-.container-gast-card .card .contentBx .color a:active span:nth-child(1) 
-span:nth-child(2) 
-span:nth-child(2) 
-span:nth-child(2) {
- transition: none;
- transition-delay: none;
-}
-
-/*End button Pay*/
-
-/*loader*/
-.gast-spinner {
-  border: 4px solid rgba(0, 0, 0, 0.1);
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border-left-color: #09f;
-  animation: spin 1s ease infinite;
+.block-center{
   margin: 0 auto;
-  margin-top: 130px;
-  display: none;
 }
-.gast-text-confirmation{
-  margin-top: 150px;
-  color: #fff;
-  display: none;
+
+#gastcoin-gateway button, #gastcoin-gateway-select-wallet button{
+  background-color: #fff;
+  color: #000000;
 }
-.gast-text-confirmation a{
-  color: #fff;
-  text-align: center!important;
+
+.is-border-radius-17{
+  border-radius: 17px!important;
+}
+.is-border-radius-24{
+  border-radius: 24px!important;
+}
+.is-border-radius-27{
+  border-radius: 27px!important;
+}
+.is-border-top{
+  border-top: 1px solid #f2f2f2;
+  padding-top: 10px;
+}
+.if-border-bottom{
+  border-bottom: 1px solid #f2f2f2;
+  padding-bottom: 20px;
+}
+.card-gastcoin{
+  margin: 0 auto;
+  width: 420px;
+  background-size: cover;
+
+}
+.btn-crypto-gastcoin img{
+  width: 25px;
+  height: 25px;
+}
+.is-float-left{
+  float: inline-end;
+}
+#gast-text-alert{
+  text-align: end;
+}
+#gastcoin-total{
+  color: #ffffff!important;
+  font-weight: bold;
+}
+.card-gastcoin .loader {
+  margin: 0 auto;
+  margin-top: 12%;
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  display: none;
 }
 
 @keyframes spin {
-  0% {
-    transform: rotate(0deg);
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@media screen and (max-width: 768px) {
+  #gastcoin-client-wallet{
+    margin-bottom: 1rem !important;
+  }
+  .gastcoin-ico img{
+    width: 25px!important;
   }
 
-  100% {
-    transform: rotate(360deg);
+  #gastcoin-gateway .column, #gastcoin-gateway-select-wallet .column{
+    padding: 0px!important;
+  }
+  #gastcoin-gateway .gastcoin-class-total{
+    width: 100%;
+    float: inline-start;
+    margin-bottom: 0px;
+  }
+  #gastcoin-client-wallet{
+    font-size: 12px!important;
+  }
+  .gastcoin-float-left{
+    float: left!important;
+    width: auto;
+    margin-right: 25%;
+  }
+  #gastcoin-gateway .card-content{
+    padding-top: 10px !important;
+    padding-bottom: 25px !important;
+    padding-left: 1.2rem !important;
+    padding-right: 1.2rem !important;
+  }
+  #gastcoin-gateway .columns {
+    margin-right: 5px!important;
   }
 }
-/*end loader*/
+
+.gastcoin-ico img{
+  float: right;
+}
+
+.card-gastcoin .content{
+  padding-left: 15px;
+}
+@media screen and (min-width: 769px) {
+  .card-gastcoin .card-content{
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+}
+
+#gastcoin-gateway-pay{
+  background-color: #036BD0!important;
+  color: #ffffff!important;
+}
+
+#gastcoin-gateway-select-wallet .icon{
+  margin-right: 10px!important;
+}
+
+/*Cad CSS*/
+
+.gastcoin-card .card{
+width: 320px;
+height: 190px;
+  -webkit-perspective: 600px;
+  -moz-perspective: 600px;
+  perspective:600px;
+  
+}
+.gastcoin-card .loader{
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  margin-top: 20px !important;
+  display: none;
+}
+
+.card__part{
+  box-shadow: 1px 1px #aaa3a3;
+  top: 0;
+  position: absolute;
+  z-index: 1000;
+  left: 0;
+  display: inline-block;
+  width: 320px;
+  height: 190px;
+  background-image: linear-gradient(to right bottom, #000000, #000000, #000000, #000000, #000000); /*linear-gradient(to right bottom, #fd8369, #fc7870, #f96e78, #f56581, #ee5d8a)*/
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 18px;
+  word-wrap: break-word;
+  -webkit-transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -moz-transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -ms-transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -o-transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+}
+
+.card__front{
+  padding: 18px;
+-webkit-transform: rotateY(0);
+-moz-transform: rotateY(0);
+}
+
+.card__back {
+  padding: 18px 0;
+-webkit-transform: rotateY(-180deg);
+-moz-transform: rotateY(-180deg);
+}
+
+.card__black-line {
+    margin-top: 5px;
+    height: 38px;
+    background-color: #303030;
+}
+
+.card__logo {
+    height: 16px;
+}
+
+.card__front-logo-1{
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 16px;
+}
+
+.card__front-logo-2{
+    position: absolute;
+    top: 18px;
+    right: 50px;
+    width: 16px;
+}
+
+.card__front-logo-3{
+    position: absolute;
+    top: 18px;
+    right: 82px;
+    width: 16px;
+}
+.card__square {
+    border-radius: 5px;
+    height: 30px;
+    width: 30px;
+}
+
+.card_numer {
+    display: block;
+    width: 100%;
+    word-spacing: 4px;
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.card__space-75 {
+    width: 0%;
+    float: left;
+}
+
+.card__space-25 {
+    width: 100%;
+    float: left;
+}
+
+.card__label {
+    font-size: 10px;
+    color: rgba(255,255,255,0.8);
+    letter-spacing: 1px;
+}
+
+.card__info {
+  margin-bottom: 0;
+  margin-top: 5px;
+  font-size: 10px;
+  line-height: 18px;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.card__back-content {
+    padding: 15px 15px 0;
+}
+.card__secret--last {
+    color: #303030;
+    text-align: right;
+    margin: 0;
+    font-size: 14px;
+}
+
+.card__secret {
+    padding: 5px 12px;
+    background-color: #fff;
+    position:relative;
+}
+
+.card__secret:before{
+  content:'';
+  position: absolute;
+top: -3px;
+left: -3px;
+height: calc(100% + 6px);
+width: calc(100% - 42px);
+border-radius: 4px;
+  background: repeating-linear-gradient(45deg, #ededed, #ededed 5px, #f9f9f9 5px, #f9f9f9 10px);
+}
+
+.card__back-logo {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+}
+
+.card__back-square {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+}
+
+.gastcoin-card .card{
+  margin: 0 auto;
+}
+
+#gastcoin-gateway button, .gastcoin-gateway-select-wallet button{
+  border: 1px solid #0000001c;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background-image: #ffffff;
+  background: #ffffff;
+}
+#gastcoin-gateway .gastcoin-btns .is-normal{
+  border: 1px solid #0000001c;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  width: 142px;
+  height: 50px;
+  background-image: #ffffff;
+  background: #ffffff;
+}

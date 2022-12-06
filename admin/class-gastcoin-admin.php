@@ -150,10 +150,24 @@ class Gastcoin_Admin {
 			wp_send_json_error();
 		}
 	}
+	function gastcoin_get_image_matic() {
+		if(isset($_GET['id']) ){
+			$image = wp_get_attachment_image( filter_input( INPUT_GET, 'id', FILTER_VALIDATE_INT ), 'medium', false, array( 'id' => 'gastcoin-preview-image_matic' ) );
+			$data = array(
+				'image'    => $image,
+			);
+			wp_send_json_success( $data );
+		} else {
+			wp_send_json_error();
+		}
+	}
 
 	function load_media_files_gast() {
 		wp_enqueue_media();
 	}
 
-
+	function get_network_gast(){
+		global $wp; 
+    	$wp->add_query_var('network_payment'); 
+	}
 }

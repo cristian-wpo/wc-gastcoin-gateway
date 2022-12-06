@@ -17,7 +17,6 @@ function gastcoin_backend_dashboard()
         $gast_url_pay = '';
     }
 
-    //
     if (!get_option('_cbox_gast')) {
         add_option('_cbox_gast', 'true', '', 'no');
         $cbox_gast = 'true';
@@ -38,13 +37,26 @@ function gastcoin_backend_dashboard()
     } else {
         $cbox_usdt = get_option('_cbox_usdt');
     }
+    //Production / testing
+    if (!get_option('_cbox_testing')) {
+        add_option('_cbox_testing', 'false', '', 'no');
+        $cbox_testing = 'false';
+    } else {
+        $cbox_testing = get_option('_cbox_testing');
+    }
+    if (!get_option('_cbox_production')) {
+        add_option('_cbox_production', 'true', '', 'no');
+        $cbox_production = 'true';
+    } else {
+        $cbox_production = get_option('_cbox_production');
+    }
 
+    //custom BSC
     if (!get_option('_custom_token')) {
         add_option('_custom_token', 'false', '', 'no');
         $custom_token = 'false';
     } else {
         $custom_token = get_option('_custom_token');
-
     }
 
     if (!get_option('_gast_value_name')) {
@@ -75,11 +87,18 @@ function gastcoin_backend_dashboard()
         $gast_value_decimals = get_option('_gast_value_decimals');
     }
 
-    if (!get_option('_network_payment')) {
-        add_option('_network_payment', 'bsc', '', 'no');
-        $gast_network_payment = 'bsc';
+    if (!get_option('_select_red_bsc')) {
+        add_option('_select_red_bsc', 'true', '', 'no');
+        $gast_network_payment_bsc = 'true';
     } else {
-        $gast_network_payment = get_option('_network_payment');
+        $gast_network_payment_bsc = get_option('_select_red_bsc');
+    }
+
+    if (!get_option('_select_red_matic')) {
+        add_option('_select_red_matic', 'true', '', 'no');
+        $gast_network_payment_matic = 'true';
+    } else {
+        $gast_network_payment_matic = get_option('_select_red_matic');
     }
 
     $image_id = get_option( '_gastcoin_custom_image_id' );
@@ -91,6 +110,55 @@ function gastcoin_backend_dashboard()
         // Some default image
         $image = '<img id="gastcoin-preview-image" src="https://gamestorecoin.com/wp-content/plugins/gastcoin-gateway/assets/img/pay-by-busd.png" />';
     }
+    //end custom bsc
+
+    //custom polygon
+    if (!get_option('_custom_token_matic')) {
+        add_option('_custom_token_matic', 'false', '', 'no');
+        $custom_token_matic = 'false';
+    } else {
+        $custom_token_matic = get_option('_custom_token_matic');
+    }
+
+    if (!get_option('_gast_value_name_matic')) {
+        add_option('_gast_value_name_matic', '', '', 'no');
+        $gast_value_name_matic = '';
+    } else {
+        $gast_value_name_matic = get_option('_gast_value_name_matic');
+    }
+
+    if (!get_option('_gast_value_symbol_matic')) {
+        add_option('_gast_value_symbol_matic', '', '', 'no');
+        $gast_value_symbol_matic = '';
+    } else {
+        $gast_value_symbol_matic = get_option('_gast_value_symbol_matic');
+    }
+
+    if (!get_option('_gast_value_address_matic')) {
+        add_option('_gast_value_address_matic', '', '', 'no');
+        $gast_value_address_matic = '';
+    } else {
+        $gast_value_address_matic = get_option('_gast_value_address_matic');
+    }
+
+    if (!get_option('_gast_value_decimals_matic')) {
+        add_option('_gast_value_decimals_matic', '', '', 'no');
+        $gast_value_decimals_matic = '';
+    } else {
+        $gast_value_decimals_matic = get_option('_gast_value_decimals_matic');
+    }
+
+
+    $image_id_matic = get_option( '_gastcoin_custom_image_id_matic' );
+    
+    if( intval( $image_id_matic ) > 0 ) {
+        // Change with the image size you want to use
+        $image_matic = wp_get_attachment_image( $image_id_matic, 'medium', false, array( 'id' => 'gastcoin-preview-image_matic' ) );
+    } else {
+        // Some default image
+        $image_matic = '<img id="gastcoin-preview-image_matic" src="https://gamestorecoin.com/wp-content/plugins/gastcoin-gateway/assets/img/pay-by-busd.png" />';
+    }
+    //end custom polygon
 
 ?>
     <h1><?php echo __('Gastcoin Gateway setting', 'gastcoin'); ?></h1>
@@ -141,12 +209,19 @@ function gastcoin_backend_dashboard()
         </tbody>
     </table>
     <hr>
+    <h2><?php echo __('Production / Testing', 'gastcoin'); ?></h2>
+    <hr>
+        <input type="radio" id="cbox_production" name="testing-production" value="CSS" <?php if($cbox_production != 'false' && $cbox_production != '') echo 'checked'; ?>>
+        <label for="production">Production</label><br>
+        <input type="radio" id="cbox_testing" name="testing-production" value="JavaScript" <?php if($cbox_testing != 'false' && $cbox_testing != '') echo 'checked'; ?>>
+        <label for="testing">Testing</label>
+
     <h2><?php echo __('Enable / disable tokens', 'gastcoin'); ?></h2>
-        <label><input type="checkbox" id="cbox_gast" value="gast" <?php  if($cbox_gast != 'false' && $cbox_gast != '') echo 'checked'; ?>> Gastcoin ($GAST)</label><br>
+        <label><input type="checkbox" id="cbox_gast" value="gast" <?php if($cbox_gast != 'false' && $cbox_gast != '') echo 'checked'; ?>> Gastcoin ($GAST)</label><br>
         <label><input type="checkbox" id="cbox_busd" value="busd" <?php if($cbox_busd != 'false'  && $cbox_busd != '') echo 'checked'; ?>> Binance USD ($BUSD)</label><br>
         <label><input type="checkbox" id="cbox_usdt" value="usdt" <?php if($cbox_usdt != 'false'  && $cbox_usdt != '') echo 'checked'; ?>> Tether ($USDT)</label><br>         
     <hr>                                                                        
-    <h2><?php echo __('Add custom BEP-20 token (BETA)', 'gastcoin'); ?></h2>
+    <h2><?php echo __('Add custom BEP-20 and ERC-20 token (BETA)', 'gastcoin'); ?></h2>
     <p>
         The free version has no conversion of the token value to USD.
     </p>
@@ -156,46 +231,80 @@ function gastcoin_backend_dashboard()
     <p>
         <b>Premium version available soon... <a href="https://gastcoin.com/" target="_blank">gastcoin.com</a></b>
     </p>
-    
-    <div class="gast_input_active"> 
-        <label><input type="checkbox" id="custom_token" value="gast" <?php if($custom_token != 'false' && $custom_token != '') echo 'checked'; ?>> Enable / disable</label><br>
+    <div class="custom-tokens" >
+        <div class="custom-bsc">
+            <div class="gast_input_active"> 
+                <label><input type="checkbox" id="custom_token" value="gast" <?php if($custom_token != 'false' && $custom_token != '') echo 'checked'; ?>> Enable / disable</label><br>
+            </div>
+            <div class="gast_input"> 
+                <label><?php esc_html_e('Type', 'gastcoin'); ?> =</label>
+                <input type="text" id="gast_value_type" value="BEP-20 (BSC)" readonly/>
+            </div>
+            <div class="gast_input"> 
+                <label><?php esc_html_e('Name', 'gastcoin'); ?> =</label>
+                <input type="text" id="gast_value_name" value="<?php if ($gast_value_name != '') { echo esc_attr($gast_value_name); }?>" placeholder="Gastcoin"/>
+            </div>
+            <div class="gast_input"> 
+                <label><?php esc_html_e('Symbol', 'gastcoin'); ?> =</label>
+                <input type="text" id="gast_value_symbol" value="<?php if ($gast_value_symbol != '') { echo esc_attr($gast_value_symbol); } ?>" placeholder="GAST"/>
+            </div>
+            <div class="gast_input input_address"> 
+                <label><?php esc_html_e('Address', 'gastcoin'); ?> =</label>
+                <input type="text" id="gast_value_address" value="<?php if ($gast_value_address != '') { echo esc_attr($gast_value_address); }?>" placeholder="0x8477ED2eE590FDAF9D63E8Ed1d3d6770167fcDB5"/>
+            </div>
+            <div class="gast_input"> 
+                <label><?php esc_html_e('Decimals', 'gastcoin'); ?> =</label>
+                <input type="number" id="gast_value_decimals" value="<?php if ($gast_value_decimals != '') { echo esc_attr($gast_value_decimals); } ?>" placeholder="9"/>
+            </div>
+            <div class="gast_input">
+                <?php echo $image;?>
+                <input type="hidden" name="gastcoin_custom_image_id" id="gastcoin_custom_image_id" value="<?php echo esc_attr( $image_id ); ?>" class="regular-text" />
+            </div>
+            <div class="gast_input">
+                <input type='button' class="button-primary" value="<?php esc_attr_e( 'Select a image button', 'gastcoin' ); ?>" id="gastcoin_media_manager"/>
+            </div>
+        </div>
+        <div class="custom-matic">
+            <div class="gast_input_active"> 
+                <label><input type="checkbox" id="custom_token_matic" value="gast_matic" <?php if($custom_token_matic != 'false' && $custom_token_matic != '') echo 'checked'; ?>> Enable / disable</label><br>
+            </div>
+            <div class="gast_input"> 
+                <label><?php esc_html_e('Type', 'gastcoin'); ?> =</label>
+                <input type="text" id="gast_value_type_matic" value="ERC-20 (Polygon)" readonly/>
+            </div>
+            <div class="gast_input"> 
+                <label><?php esc_html_e('Name', 'gastcoin'); ?> =</label>
+                <input type="text" id="gast_value_name_matic" value="<?php if ($gast_value_name_matic != '') { echo esc_attr($gast_value_name_matic); }?>" placeholder="Gastcoin"/>
+            </div>
+            <div class="gast_input"> 
+                <label><?php esc_html_e('Symbol', 'gastcoin'); ?> =</label>
+                <input type="text" id="gast_value_symbol_matic" value="<?php if ($gast_value_symbol_matic != '') { echo esc_attr($gast_value_symbol_matic); } ?>" placeholder="GAST"/>
+            </div>
+            <div class="gast_input input_address"> 
+                <label><?php esc_html_e('Address', 'gastcoin'); ?> =</label>
+                <input type="text" id="gast_value_address_matic" value="<?php if ($gast_value_address_matic != '') { echo esc_attr($gast_value_address_matic); }?>" placeholder="0x8477ED2eE590FDAF9D63E8Ed1d3d6770167fcDB5"/>
+            </div>
+            <div class="gast_input"> 
+                <label><?php esc_html_e('Decimals', 'gastcoin'); ?> =</label>
+                <input type="number" id="gast_value_decimals_matic" value="<?php if ($gast_value_decimals_matic != '') { echo esc_attr($gast_value_decimals_matic); } ?>" placeholder="9"/>
+            </div>
+            <div class="gast_input">
+                <?php echo $image_matic;?>
+                <input type="hidden" name="gastcoin_custom_image_id_matic" id="gastcoin_custom_image_id_matic" value="<?php echo esc_attr( $image_id_matic ); ?>" class="regular-text" />
+            </div>
+            <div class="gast_input">
+                <input type='button' class="button-primary" value="<?php esc_attr_e( 'Select a image button', 'gastcoin' ); ?>" id="gastcoin_media_manager_matic"/>
+            </div>
+        </div>
     </div>
-    <div class="gast_input"> 
-        <label><?php esc_html_e('Type', 'gastcoin'); ?> =</label>
-        <input type="text" id="gast_value_type" value="BEP-20" readonly/>
-    </div>
-    <div class="gast_input"> 
-        <label><?php esc_html_e('Name', 'gastcoin'); ?> =</label>
-        <input type="text" id="gast_value_name" value="<?php if ($gast_value_name != '') { echo esc_attr($gast_value_name); }?>" placeholder="Gastcoin"/>
-    </div>
-    <div class="gast_input"> 
-        <label><?php esc_html_e('Symbol', 'gastcoin'); ?> =</label>
-        <input type="text" id="gast_value_symbol" value="<?php if ($gast_value_symbol != '') { echo esc_attr($gast_value_symbol); } ?>" placeholder="GAST"/>
-    </div>
-    <div class="gast_input input_address"> 
-        <label><?php esc_html_e('Address', 'gastcoin'); ?> =</label>
-        <input type="text" id="gast_value_address" value="<?php if ($gast_value_address != '') { echo esc_attr($gast_value_address); }?>" placeholder="0x8477ED2eE590FDAF9D63E8Ed1d3d6770167fcDB5"/>
-    </div>
-    <div class="gast_input"> 
-        <label><?php esc_html_e('Decimals', 'gastcoin'); ?> =</label>
-        <input type="number" id="gast_value_decimals" value="<?php if ($gast_value_decimals != '') { echo esc_attr($gast_value_decimals); } ?>" placeholder="9"/>
-    </div>
-    <div class="gast_input">
-        <?php echo $image;?>
-        <input type="hidden" name="gastcoin_custom_image_id" id="gastcoin_custom_image_id" value="<?php echo esc_attr( $image_id ); ?>" class="regular-text" />
-    </div>
-    <div class="gast_input">
-        <input type='button' class="button-primary" value="<?php esc_attr_e( 'Select a image button', 'gastcoin' ); ?>" id="gastcoin_media_manager"/>
-    </div>
-    
     <div>
         <hr>
         <h2><?php echo __('Payment network', 'gastcoin'); ?></h2>
         <h3><?php echo __('Select the network', 'gastcoin'); ?></h3>
         <form id="my_network_select">
-            <input type="radio" id="bsc" name="select_red" value="bsc" <?php if($gast_network_payment == 'bsc'){ echo 'checked="checked"'; }?>>
+            <input type="checkbox" id="select_red_bsc" name="select_red_bsc" value="bsc" <?php if($gast_network_payment_bsc == 'true'){ echo 'checked="checked"'; }?>>
             <label for="bsc">Binance Smart Chain (BSC)</label><br>
-            <input type="radio" id="matic" name="select_red" value="matic" <?php if($gast_network_payment == 'matic'){ echo 'checked="checked"'; }?>>
+            <input type="checkbox" id="select_red_matic" name="select_red_matic" value="matic" <?php if($gast_network_payment_matic == 'true'){ echo 'checked="checked"'; }?>>
             <label for="matic">Polygon (MATIC)</label><br>
         </form>
        

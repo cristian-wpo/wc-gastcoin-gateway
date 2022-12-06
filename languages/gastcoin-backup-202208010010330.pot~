@@ -4,7 +4,7 @@ msgstr ""
 "Language: \n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"POT-Creation-Date: 2022-08-01 00:44+0000\n"
+"POT-Creation-Date: 2022-08-01 00:07+0000\n"
 "X-Generator: Loco https://localise.biz/"
 
 #: admin/partials/gastcoin-admin-display.php:204
@@ -22,15 +22,11 @@ msgstr ""
 msgid "Address"
 msgstr ""
 
-#: public/class-gastcoin-public.php:596
-msgid "Completed"
-msgstr ""
-
 #: admin/partials/gastcoin-admin-display.php:157
 msgid "Conversion USD 1"
 msgstr ""
 
-#: public/class-gastcoin-public.php:273 public/class-gastcoin-public.php:323
+#: public/class-gastcoin-public.php:323
 msgid "Copy payment URL"
 msgstr ""
 
@@ -86,44 +82,12 @@ msgstr ""
 msgid "Next step: Active in WooCommerce"
 msgstr ""
 
-#: public/class-gastcoin-public.php:270 public/class-gastcoin-public.php:594
-msgid "Pay now"
-msgstr ""
-
-#: public/class-gastcoin-public.php:595
-msgid "Payment error"
-msgstr ""
-
 #: admin/partials/gastcoin-admin-display.php:282
 msgid "Payment network"
 msgstr ""
 
-#: public/class-gastcoin-public.php:590
-msgid "Processing"
-msgstr ""
-
-#: public/class-gastcoin-public.php:589
-msgid "Processing data..."
-msgstr ""
-
-#: public/class-gastcoin-public.php:591
-msgid "Processing."
-msgstr ""
-
-#: public/class-gastcoin-public.php:592
-msgid "Processing.."
-msgstr ""
-
-#: public/class-gastcoin-public.php:593
-msgid "Processing..."
-msgstr ""
-
 #: admin/partials/gastcoin-admin-display.php:173
 msgid "Redirect URL for payment"
-msgstr ""
-
-#: public/class-gastcoin-public.php:599
-msgid "Select a cryptocurrency"
 msgstr ""
 
 #: admin/partials/gastcoin-admin-display.php:244
@@ -131,24 +95,8 @@ msgstr ""
 msgid "Select a image button"
 msgstr ""
 
-#: public/class-gastcoin-public.php:209
-msgid "Select cryptocurrency"
-msgstr ""
-
-#: public/class-gastcoin-public.php:192
-msgid "Select network"
-msgstr ""
-
 #: admin/partials/gastcoin-admin-display.php:283
 msgid "Select the network"
-msgstr ""
-
-#: public/class-gastcoin-public.php:287
-msgid "Select wallet"
-msgstr ""
-
-#: public/class-gastcoin-public.php:597
-msgid "Succesful transaction"
 msgstr ""
 
 #: admin/partials/gastcoin-admin-display.php:228
@@ -167,16 +115,4 @@ msgid ""
 "the page is created add in this field the permanent link of the page created "
 "with the shortcode.\n"
 "                        Example: pay-to-crypto-asset"
-msgstr ""
-
-#: public/class-gastcoin-public.php:183
-msgid "Wallet selected"
-msgstr ""
-
-#: public/class-gastcoin-public.php:600
-msgid "You can now make the payment"
-msgstr ""
-
-#: public/class-gastcoin-public.php:588 public/class-gastcoin-public.php:598
-msgid "You have not yet selected a network"
 msgstr ""
